@@ -13,7 +13,7 @@ $database_hostname = "localhost";
  
 		die($z->getMessage());
 	}
-$query = "SELECT product_Id,productName,productDesc, productPrice,productShipCost FROM product";	
+    $query = "SELECT product_Id,productName,productDesc, productPrice,productShipCost FROM product";	
 	$statement = $database_connection->prepare($query);
 	$statement->execute();
  
