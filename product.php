@@ -1,14 +1,14 @@
 <?php
   session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-  $resp = new stdClass();
+   
+    
+	
+   
     $post = trim(file_get_contents("php://input"));
 	//and decode it into an associative array
 	$json = json_decode($post, true);
-    
-	//get the raw POST content 
+    //get the raw POST content 
 	$success = false;
 	$message = '';
     $database_hostname = "localhost";
@@ -26,36 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
  
 		die($z->getMessage());
 	}
-    if(isset($json['password']) &&  $json['email'] )
-        {
-        $sql = $db->prepare("SELECT * FROM user WHERE userEmail = :email");
-        $sql->bindValue(':email', $json['email']);
-        $sql->execute();
-
-        if($user = $sql->fetch(PDO::FETCH_ASSOC))
-            {
-                if (password_verify($json['password'], $user['userPassword']))
-                {
-                    $success = true;
-                    $_SESSION['user'] = $user['uid'];
-                } 
-                else
-                {
-                    $message = 'Password does not match';
-                }
-            } 
-        else
-            {
-                $message = 'Email does not match our records';
-            }
-
-        $resp->success = $success;
-        $resp->message = $message;
-
-        echo json_encode($resp);
-
-        }
-
 
     $query = "SELECT * FROM product";	
 	$statement = $db->prepare($query);
@@ -70,9 +40,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
  	}
 	echo json_encode($userData_List);
 
-if(isset($_SESSION['user']))
+    if(isset($json['email']) &&isset($json['password']))
+      {
+
+            $sql = $db->prepare("SELECT * FROM user WHERE userEmail = :email");
+            $sql->bindValue(':email', $json['email']);
+            $sql->execute();
+           
+            if($user = $sql->fetch(PDO::FETCH_ASSOC))
+                {
+                    if (password_verify($json['password'], $user['userPassword']))
+                    {
+                        $success = true;
+                        $_SESSION['user'] = $user['uid'];
+                    } 
+                    else
+                    {
+                        $message = 'Password does not match';
+                    }
+                } 
+            else
+                {
+                    $message = 'Email does not match our records';
+                }
+             $resp = new stdClass();
+            $resp->success = $success;
+            $resp->message = $message;
+
+            echo json_encode($resp);
+
+    }
+
+
+else if(isset($_SESSION['user']) && isset($json['productId']) && isset($json['productQty']))
 {
-    echo $_SESSION['user'];
+    
     try 
     {
         $sql = $db->prepare('SELECT * FROM product WHERE product_Id = :pid');
@@ -109,5 +111,5 @@ if(isset($_SESSION['user']))
   echo $myJSON;
 }
     
-}
+
 ?>
