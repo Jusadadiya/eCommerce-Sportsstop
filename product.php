@@ -8,8 +8,8 @@
 	//get the raw POST content 
   
 	 
-      if(isset($json['email']) &&isset($json['password']))
-      {
+    if(isset($json['email']) && isset($json['password']))
+    {
 	$success = false;
 	$message = '';
     $dbuser="root";
@@ -57,7 +57,7 @@
  
 		die($z->getMessage());
 	}
-    $query = "SELECT product_Id,productName,productDesc, productPrice,productShipCost FROM product";	
+    $query = "SELECT * FROM product";	
 	$statement = $database_connection->prepare($query);
 	$statement->execute();
  

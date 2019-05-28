@@ -1,5 +1,5 @@
 <?php
-$username = "root";
+/*$username = "root";
 $password = "";
 $connected = false;
 
@@ -52,10 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         }
     
     echo json_encode($resp);
-}
+}*/
     
     
-  /*//get the json the client sent
+  //get the json the client sent
   $post = trim(file_get_contents("php://input"));
   $json = json_decode($post, true);
 
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $lname = $json['lname'];
   $username = $json['username'];
   $useraddress= $json['ShippingAdd'];
-
+  $hash = password_hash($password, PASSWORD_DEFAULT);
 
   if (isset($email) && isset($password)  && isset($fname)  && isset($lname)  && isset($username)  && isset($useraddress)){
     //open access to our database
@@ -81,13 +81,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         
         $user = $sql->fetch(PDO::FETCH_ASSOC);
 
-        if (!isset($user['userEmail'])){
+        if (!isset($user['uid'])){
             //if not, create a new user record and save it
-            $cmd = 'INSERT INTO user (userEmail, userPassword,user_fname,user_lname,userName,userShippingAdd ' .
-                'VALUES (:email, :password,:fname,:lname,:username,:useradrress)';
+            $cmd = 'INSERT INTO user (userEmail, userPassword,user_fname,user_lname,userName,userShippingAdd)' .
+                'VALUES (:email, :password,:fname,:lname,:username,:useraddress)';
             $sql = $db->prepare($cmd);
             $sql->bindValue(':email', $email);
-            $sql->bindValue(':password', $password);
+            $sql->bindValue(':password', $hash);
              $sql->bindValue(':fname', $fname);
             $sql->bindValue(':lname', $lname);
              $sql->bindValue(':username', $username);
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $sql->execute();
             $success = true;
         } else
-            $message = 'user ' . $user['userEmail'] . ' found';
+            $message = 'user ' . $user['uid'] . ' found';
     } catch(PDOException $e) {
         $message = $e->getMessage() . ' cannot connect to database';
     } catch(Exception $e){
@@ -109,5 +109,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $myObj->success = $success;
   $myObj->message = $message;
   $myJSON = json_encode($myObj);
-  echo $myJSON;*/
+  echo $myJSON;
 ?>
