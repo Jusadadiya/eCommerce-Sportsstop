@@ -23,18 +23,26 @@
 		die($z->getMessage());
 	}
 
-    $query = "SELECT * FROM cart";	
+    $query = "SELECT * FROM cart where uid = :uid";	
 	$statement = $db->prepare($query);
+    $statement->bindValue(':uid', $_SESSION['user']);
 	$statement->execute();
  
 	$userData_List = array();
  
-	while($row=$statement->fetch(PDO::FETCH_ASSOC))
-    {
-		
-        $userData_List['Data'][] = $row;	
- 	}
-	echo json_encode($userData_List);
+	
+if ($row=$statement->fetch(PDO::FETCH_ASSOC))
+        {
+           while($row=$statement->fetch(PDO::FETCH_ASSOC))
+                {
 
+                    $userData_List['Data'][] = $row;	
+                }
+                echo json_encode($userData_List);
+        } 
+        else
+        {
+                $message = 'No product in cart';
+        }
 
 ?>
