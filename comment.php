@@ -25,8 +25,4 @@ while($row=$statement->fetch(PDO::FETCH_ASSOC)){
 
 }
 echo json_encode($userData_List);
-
-
-
-
 ?>
