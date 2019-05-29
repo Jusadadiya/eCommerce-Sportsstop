@@ -23,26 +23,30 @@
 		die($z->getMessage());
 	}
 
-    $query = "SELECT * FROM cart where uid = :uid";	
+   $query = "SELECT a.product_Id,a.productName,b.product_qty,a.productPrice,a.productShipCost,(a.productPrice+a.productShipCost)*b.product_Qty as total$ FROM product a,cart b where uid = :uid and a.product_Id=b.product_Id";	
+ 	
 	$statement = $db->prepare($query);
     $statement->bindValue(':uid', $_SESSION['user']);
 	$statement->execute();
- 
+     
 	$userData_List = array();
- 
-	
-if ($row=$statement->fetch(PDO::FETCH_ASSOC))
-        {
-           while($row=$statement->fetch(PDO::FETCH_ASSOC))
-                {
-
-                    $userData_List['Data'][] = $row;	
-                }
-                echo json_encode($userData_List);
-        } 
-        else
+         
+    while($row=$statement->fetch(PDO::FETCH_ASSOC))
+     {
+        $success = true;
+        $userData_List['Data'][] = $row;
+               
+     }
+     echo json_encode($userData_List);
+        
+        if ($row=$statement->fetch(PDO::FETCH_ASSOC))
         {
                 $message = 'No product in cart';
         }
+            $resp = new stdClass();
+            $resp->success = $success;
+            $resp->message = $message;
+
+            echo json_encode($resp);
 
 ?>
