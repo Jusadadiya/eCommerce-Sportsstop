@@ -18,6 +18,7 @@
   {
     //open access to our database
     try {
+        //establishes database connection
         $db = new PDO('mysql:host=localhost; dbname=sportdb;', 'root', ''); 
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //see if the email already exists in the database
@@ -27,9 +28,10 @@
         
         $user = $sql->fetch(PDO::FETCH_ASSOC);
 
+        //looks for users with existing email
         if (isset($user['userEmail']))
         {
-            //
+            // updates the account detils of existing users
             $cmd1 = 'Update user SET userEmail=:email,userPassword=:password,user_fname=:fname,user_lname=:lname,userName=:username,userShippingAdd=:useraddress where uid=:uid';
             $sqls = $db->prepare($cmd1);
             $sqls->bindValue(':uid', $user['uid']);
