@@ -23,6 +23,38 @@
 		die($z->getMessage());
 	}
 
+    if(isset($json['email']) &&isset($json['password']))
+          {
+
+                $sql = $db->prepare("SELECT * FROM user WHERE userEmail = :email");
+                $sql->bindValue(':email', $json['email']);
+                $sql->execute();
+
+                if($user = $sql->fetch(PDO::FETCH_ASSOC))
+                    {
+                        if (password_verify($json['password'], $user['userPassword']))
+                        {
+                            $success = true;
+                            $_SESSION['user'] = $user['uid'];
+                             $message = 'Password match';
+                        } 
+                        else
+                        {
+                            $message = 'Password does not match';
+                        }
+                    } 
+                else
+                    {
+                        $message = 'Email does not match our records';
+                    }
+                 $resp = new stdClass();
+                $resp->success = $success;
+                $resp->message = $message;
+
+                echo json_encode($resp);
+
+        }
+   try{
    $query = "SELECT a.product_Id,a.productName,b.product_qty,a.productPrice,a.productShipCost,(a.productPrice+a.productShipCost)*b.product_Qty as total$ FROM product a,cart b where uid = :uid and a.product_Id=b.product_Id";	
  	
 	$statement = $db->prepare($query);
@@ -37,13 +69,14 @@
         $userData_List['Data'][] = $row;
         $total=$row['total$']+$total;
         
-               
+        $message = 'Cart retrieve successfull';
      }
         $userData_List['Total'][]=$total;
      echo json_encode($userData_List);
-        
+         
         if($success!="true")
         {
+                
                 $message = 'No product in cart';
         }
             $resp = new stdClass();
@@ -52,7 +85,12 @@
             $resp->message = $message;
               
             echo json_encode($resp);
-if($success=="false")
+       }
+        catch(PDOException $e)
+        {
+            $success="false";
+        }
+if($success=="true")
 {
         $myObj = new stdClass();
         $myObj->Purchase_cart="1";
@@ -61,60 +99,63 @@ if($success=="false")
         $myjson=json_encode($myObj);
 
         echo $myjson;
+    if(isset($json['choice']))
+    {
         $userinput=$json['choice'];
-    if($userinput=="1")
-    {
-        $query = "SELECT a.product_Id,a.productName,b.product_qty,a.productPrice,a.productShipCost,(a.productPrice+a.productShipCost)*b.product_Qty as total$ FROM product a,cart b where uid = :uid and a.product_Id=b.product_Id";	
+        if($userinput=="1")
+        {
+            $query = "SELECT a.product_Id,a.productName,b.product_qty,a.productPrice,a.productShipCost,(a.productPrice+a.productShipCost)*b.product_Qty as total$ FROM product a,cart b where uid = :uid and a.product_Id=b.product_Id";	
 
-        $statement = $db->prepare($query);
-        $statement->bindValue(':uid', $_SESSION['user']);
-        $statement->execute();
+            $statement = $db->prepare($query);
+            $statement->bindValue(':uid', $_SESSION['user']);
+            $statement->execute();
 
-        $userData_List = array();
+            $userData_List = array();
 
-        while($row=$statement->fetch(PDO::FETCH_ASSOC))
-         {
-            $query = 'INSERT INTO purchasehistory (uid, product_Id,purchase_Qty,purchase_amount)' .
-                    'VALUES (:uid, :pid,:pqty,:pamt)';	
+            while($row=$statement->fetch(PDO::FETCH_ASSOC))
+             {
+                $query = 'INSERT INTO purchasehistory (uid, product_Id,purchase_Qty,purchase_amount)' .
+                        'VALUES (:uid, :pid,:pqty,:pamt)';	
 
-        $stmt = $db->prepare($query);
-        $stmt->bindValue(':uid', $_SESSION['user']);
-        $stmt->bindValue(':pid', $row['product_Id']);
-        $stmt->bindValue(':pqty', $row['product_qty']);
-        $stmt->bindValue(':pamt', $row['total$']);
-        $stmt->execute();
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':uid', $_SESSION['user']);
+            $stmt->bindValue(':pid', $row['product_Id']);
+            $stmt->bindValue(':pqty', $row['product_qty']);
+            $stmt->bindValue(':pamt', $row['total$']);
+            $stmt->execute();
 
-         }
-        #$result="Success";
-            echo $result;
-         $query = 'DELETE from cart where uid=:uid';	
+             }
+            #$result="Success";
+                echo $result;
+             $query = 'DELETE from cart where uid=:uid';	
 
-        $stmt1 = $db->prepare($query);
-        $stmt1->bindValue(':uid', $_SESSION['user']);
-        $stmt1->execute();
-           $result="Success";
-            echo $result;
-    }
-    else if($userinput=="2")
-    {
-        $query = 'DELETE from cart where uid=:uid';	
+            $stmt1 = $db->prepare($query);
+            $stmt1->bindValue(':uid', $_SESSION['user']);
+            $stmt1->execute();
+               $result="Success";
+                echo $result;
+        }
+        else if($userinput=="2")
+        {
+            $query = 'DELETE from cart where uid=:uid';	
 
-        $stmt1 = $db->prepare($query);
-        $stmt1->bindValue(':uid', $_SESSION['user']);
-        $stmt1->execute();
-           $result="Success";
-            echo $result;
-    }
-    else if($userinput=="3" && isset($json['productId']))
-    {
-        $query = 'DELETE from cart where uid=:uid and product_Id=:pid' ;	
+            $stmt1 = $db->prepare($query);
+            $stmt1->bindValue(':uid', $_SESSION['user']);
+            $stmt1->execute();
+               $result="Success";
+                echo $result;
+        }
+        else if($userinput=="3" && isset($json['productId']))
+        {
+            $query = 'DELETE from cart where uid=:uid and product_Id=:pid' ;	
 
-        $stmt1 = $db->prepare($query);
-        $stmt1->bindValue(':uid', $_SESSION['user']);
-        $stmt1->bindValue(':pid', $json['productId']);
-        $stmt1->execute();
-           $result="Success";
-            echo $result;
+            $stmt1 = $db->prepare($query);
+            $stmt1->bindValue(':uid', $_SESSION['user']);
+            $stmt1->bindValue(':pid', $json['productId']);
+            $stmt1->execute();
+               $result="Success";
+                echo $result;
+        }
     }
 }
 ?>
