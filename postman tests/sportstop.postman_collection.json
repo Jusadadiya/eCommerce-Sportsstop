@@ -1,457 +1,570 @@
 {
-	"id": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-	"name": "sportstop",
-	"description": "",
-	"order": [
-		"d4b3aa9d-ec1b-2730-6f47-3d87e22354a7",
-		"78654e4f-f157-843c-e9b0-fecc9ac2d190",
-		"cb72399e-418f-5bb7-e2d4-7b4a067f942c",
-		"7e2b135f-412b-327a-b4bb-dfd930d954da",
-		"a1fed5ae-30c1-76d8-79a9-ce8377253474",
-		"d7ddad75-820e-9fad-090a-6956ca1706b8",
-		"a450a9ce-3e1f-70db-f109-eb85a5a2340a",
-		"6a6d81ba-109b-68a6-d992-152f4bfec464",
-		"37d64290-e4a3-399f-1ef7-ed994faef176",
-		"e20fbcf2-d670-5ce7-da62-d64d3f1aca12",
-		"f545c947-9e14-87c1-c1a9-d2d37b580883",
-		"b4058dfc-372c-1bd5-9e9b-eee2454b13bc",
-		"ec556e05-dcba-e2af-0b43-e64333148081",
-		"f1890a09-99dd-7ff0-bb06-b56830887889",
-		"d6500dab-a4c5-0cc0-3e5a-61c38ba9c70e"
-	],
-	"folders": [],
-	"folders_order": [],
-	"timestamp": 1558896830952,
-	"owner": "7546558",
-	"public": false,
-	"requests": [
+	"variables": [],
+	"info": {
+		"name": "sportstop",
+		"_postman_id": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "37d64290-e4a3-399f-1ef7-ed994faef176",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost/eCommerce Sportstop/cart.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": [],
-			"dataMode": "raw",
-			"name": "cart purchase",
-			"description": "user making a purchase case",
-			"descriptionFormat": "html",
-			"time": 1559109884401,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\t\"choice\":\"1\"\n}"
-		},
-		{
-			"id": "6a6d81ba-109b-68a6-d992-152f4bfec464",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost/eCommerce Sportstop/cart.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": [],
-			"dataMode": "raw",
-			"name": "cart retrieve after login",
-			"description": "retrieve cart for new logged in user",
-			"descriptionFormat": "html",
-			"time": 1559109752069,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\t\"email\":\"1997@gmail.com\",\n\t\"password\":\"qwerty\"\n}"
-		},
-		{
-			"id": "78654e4f-f157-843c-e9b0-fecc9ac2d190",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost/eCommerce Sportstop/product.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": [],
-			"dataMode": "raw",
-			"name": "product login",
-			"description": "checking login feature in product page",
-			"descriptionFormat": "html",
-			"time": 1559108878497,
-			"version": 2,
-			"responses": [],
-			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\t\"email\":\"1997@gmail.com\",\n\t\"password\":\"qwerty\"\n}"
-		},
-		{
-			"id": "7e2b135f-412b-327a-b4bb-dfd930d954da",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost/eCommerce Sportstop/registration.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": [],
-			"dataMode": "raw",
-			"name": "registration page",
-			"description": "registering new user to database",
-			"descriptionFormat": "html",
-			"time": 1559109227384,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\t\"Email\":\"admin@admin.com\",\n\t\"Password\":\"admin\",\n\t\"fname\":\"admin\",\n\t\"lname\":\"admin\",\n\t\"username\":\"admin123\",\n\t\"ShippingAdd\":\"admin street, kitchener\"\n}"
-		},
-		{
-			"id": "a1fed5ae-30c1-76d8-79a9-ce8377253474",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost/eCommerce Sportstop/registration.php",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1559109373233,
-			"name": "registration page -account update",
-			"description": "updating account details of user",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"responses": [],
-			"rawModeData": "{\n\t\"Email\":\"admin@admin.com\",\n\t\"Password\":\"admin\",\n\t\"fname\":\"Hadmin\",\n\t\"lname\":\"Padmin\",\n\t\"username\":\"admin123\",\n\t\"ShippingAdd\":\"Hadmin street, kitchener\"\n}"
-		},
-		{
-			"id": "a450a9ce-3e1f-70db-f109-eb85a5a2340a",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost/eCommerce Sportstop/cart.php",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1559109673078,
-			"name": "empty cart case",
-			"description": "error message in case of empty cart",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"responses": [],
-			"rawModeData": "{\n\t\"email\":\"admin@gmail.com\",\n\t\"password\":\"admin\"\n}"
-		},
-		{
-			"id": "b4058dfc-372c-1bd5-9e9b-eee2454b13bc",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost/eCommerce Sportstop/comment.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": null,
-			"dataMode": "params",
-			"name": "comments page",
-			"description": "retreiving comments and purchase history",
-			"descriptionFormat": "html",
-			"time": 1559110217473,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
-		},
-		{
-			"id": "cb72399e-418f-5bb7-e2d4-7b4a067f942c",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost/eCommerce Sportstop/product.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": [],
-			"dataMode": "raw",
-			"name": "product quantity test",
-			"description": "inserting into cart with quantity",
-			"descriptionFormat": "html",
-			"time": 1559109013936,
-			"version": 2,
-			"responses": [],
-			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\t\"productId\":\"2\",\n\t\"productQty\":\"5\"\n}"
-		},
-		{
-			"id": "d4b3aa9d-ec1b-2730-6f47-3d87e22354a7",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost/eCommerce Sportstop/product.php",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\r\n// Checking whether the response has a status 200. If so, the request is successful.\r\n\r\n\r\ntests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r\n// Checking whether the Content-type header is present.\r\n\r\n\r\ntests[\"product name search\"] = responseBody.has(\"adidas football\");\r\n\r\n\r\n",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1559108677608,
 			"name": "Product Page Fetch",
-			"description": "This will test fetch product fuctionality of api with database.",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"responses": []
-		},
-		{
-			"id": "d6500dab-a4c5-0cc0-3e5a-61c38ba9c70e",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
+			"event": [
 				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"\r",
+							"tests[\"Fetch Successull\"] = responseBody.has(\"productName\");\r",
+							"\r",
+							"\r",
+							""
+						]
+					}
 				}
 			],
-			"url": "http://localhost/eCommerce Sportstop/comment.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": [],
-			"dataMode": "raw",
-			"name": "comment by authorized user",
-			"description": "giving rating and comment to a purchased product",
-			"descriptionFormat": "html",
-			"time": 1559110524925,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\t\"rating\":9,\n\t\"description\":\"good quality product\"\n}"
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/product.php",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "This will test fetch product fuctionality of api with database."
+			},
+			"response": []
 		},
 		{
-			"id": "d7ddad75-820e-9fad-090a-6956ca1706b8",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost/eCommerce Sportstop/cart.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": null,
-			"dataMode": "params",
+			"name": "product login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"\r",
+							"tests[\"Login Successfull\"] = responseBody.has(\"true\");\r",
+							"\r",
+							"tests[\"Login UnSuccessfull\"] = responseBody.has(\"false\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/product.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"1997@gmail.com\",\n\t\"password\":\"qwerty\"\n}"
+				},
+				"description": "checking login feature in product page"
+			},
+			"response": []
+		},
+		{
+			"name": "product quantity test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/product.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"productId\":\"2\",\n\t\"productQty\":\"5\"\n}"
+				},
+				"description": "inserting into cart with quantity"
+			},
+			"response": []
+		},
+		{
+			"name": "registration page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"tests[\"Registration Successfull\"] = responseBody.has(\"true\");\r",
+							"\r",
+							"tests[\"Registration UnSuccessfull\"] = responseBody.has(\"false\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/registration.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Email\":\"admin@admin.com\",\n\t\"Password\":\"admin\",\n\t\"fname\":\"admin\",\n\t\"lname\":\"admin\",\n\t\"username\":\"admin123\",\n\t\"ShippingAdd\":\"admin street, kitchener\"\n}"
+				},
+				"description": "registering new user to database"
+			},
+			"response": []
+		},
+		{
+			"name": "registration page -account update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/registration.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Email\":\"admin@admin.com\",\n\t\"Password\":\"admin\",\n\t\"fname\":\"Hadmin\",\n\t\"lname\":\"Padmin\",\n\t\"username\":\"admin123\",\n\t\"ShippingAdd\":\"Hadmin street, kitchener\"\n}"
+				},
+				"description": "updating account details of user"
+			},
+			"response": []
+		},
+		{
 			"name": "cart display",
-			"description": "displaying cart for current user",
-			"descriptionFormat": "html",
-			"time": 1559109437432,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
-		},
-		{
-			"id": "e20fbcf2-d670-5ce7-da62-d64d3f1aca12",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
+			"event": [
 				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"\r",
+							"tests[\"Fetch Successull\"] = responseBody.has(\"Cart retrieve successfull\");\r",
+							"\r",
+							""
+						]
+					}
 				}
 			],
-			"url": "http://localhost/shopcart/cart.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": [],
-			"dataMode": "raw",
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/cart.php",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "displaying cart for current user"
+			},
+			"response": []
+		},
+		{
+			"name": "empty cart case",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"tests[\"Cart Display is successfull\"] = responseBody.has(\"Cart retrieve successfull\");\r",
+							"\r",
+							"tests[\"Fetch unSuccessull\"] = responseBody.has(\"0\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/cart.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"himani135@gmail.com\",\n\t\"password\":\"1233\"\n}"
+				},
+				"description": "error message in case of empty cart"
+			},
+			"response": []
+		},
+		{
+			"name": "cart retrieve after login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"\r",
+							"tests[\"Fetch Successull\"] = responseBody.has(\"Cart retrieve successfull\");\r",
+							"\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/cart.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"1997@gmail.com\",\n\t\"password\":\"qwerty\"\n}"
+				},
+				"description": "retrieve cart for new logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "cart purchase",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"\r",
+							"tests[\"purchase Successull\"] = responseBody.has(\"Purchase Success\");\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/cart.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"choice\":\"1\"\n}"
+				},
+				"description": "user making a purchase case"
+			},
+			"response": []
+		},
+		{
 			"name": "cart item remove",
-			"description": "removing a particular item from cart",
-			"descriptionFormat": "html",
-			"time": 1559110054977,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\t\"email\":\"jayu123@gmail.com\",\n\t\"password\":\"qwerty\",\n\t\"choice\":\"3\",\n\t\"productId\":\"5\"\n}"
-		},
-		{
-			"id": "ec556e05-dcba-e2af-0b43-e64333148081",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost/eCommerce Sportstop/comment.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": null,
-			"dataMode": "params",
-			"name": "comment",
-			"description": "retrieing product purchase history of user",
-			"descriptionFormat": "html",
-			"time": 1559110262345,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
-		},
-		{
-			"id": "f1890a09-99dd-7ff0-bb06-b56830887889",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
+			"event": [
 				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"\r",
+							"tests[\"clear cart\"] = responseBody.has(\"Item removed\");"
+						]
+					}
 				}
 			],
-			"url": "http://localhost/eCommerce Sportstop/comment.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": [],
-			"dataMode": "raw",
-			"name": "comment page login",
-			"description": "checking login feature in comment page",
-			"descriptionFormat": "html",
-			"time": 1559110391899,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\t\"email\":\"1997@gmail.com\",\n\t\"password\":\"qwerty\"\n}"
+			"request": {
+				"url": "http://localhost/shopcart/cart.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"choice\":\"3\",\n\t\"productId\":\"4\"\n}"
+				},
+				"description": "removing a particular item from cart"
+			},
+			"response": []
 		},
 		{
-			"id": "f545c947-9e14-87c1-c1a9-d2d37b580883",
-			"headers": "Content-Type: application/json\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost/shopcart/cart.php",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "e97e7142-1ca8-acc9-cb69-4b5926b93901",
-			"data": [],
-			"dataMode": "raw",
 			"name": "cart clear",
-			"description": "removing everything from cart",
-			"descriptionFormat": "html",
-			"time": 1559110126947,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\t\"email\":\"jayu123@gmail.com\",\n\t\"password\":\"qwerty\",\n\t\"choice\":\"2\"\n}"
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"\r",
+							"tests[\"clear cart\"] = responseBody.has(\"No product in cart\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/shopcart/cart.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"choice\":\"2\"\n}"
+				},
+				"description": "removing everything from cart"
+			},
+			"response": []
+		},
+		{
+			"name": "comments page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"tests[\"User purchase history shown\"] = responseBody.has(\"User Purchase History\");\r",
+							"\r",
+							"tests[\"User comments shown\"] = responseBody.has(\"product_comment\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/comment.php",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "retreiving comments and purchase history"
+			},
+			"response": []
+		},
+		{
+			"name": "comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/comment.php",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "retrieing product purchase history of user"
+			},
+			"response": []
+		},
+		{
+			"name": "comment page login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"tests[\"Login success\"] = responseBody.has(\"Password match\");\r",
+							"\r",
+							"tests[\"invalid email\"] = responseBody.has(\"Email does not match our records\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/comment.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"1997@gmail.com\",\n\t\"password\":\"qwerty\"\n}"
+				},
+				"description": "checking login feature in comment page"
+			},
+			"response": []
+		},
+		{
+			"name": "comment by authorized user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							"// Checking whether the response has a status 200. If so, the request is successful.\r",
+							"\r",
+							"\r",
+							"tests[\"content-type header is present\"] = postman.getResponseHeader(\"content-type\");\r",
+							"// Checking whether the Content-type header is present.\r",
+							"\r",
+							"\r",
+							"tests[\"Comment success\"] = responseBody.has(\"comment successful\");\r",
+							"\r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/eCommerce Sportstop/comment.php",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"productId\":\"2\",\n\t\"rating\":9,\n\t\"description\":\"good high quality product\"\n}"
+				},
+				"description": "giving rating and comment to a purchased product"
+			},
+			"response": []
 		}
 	]
 }
