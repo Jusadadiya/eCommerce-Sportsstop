@@ -12,14 +12,17 @@
     $database_password = "";
     $database_name = "sportdb";
 
-try{
-    $db = new PDO("mysql:host=$database_hostname;dbname=$database_name",$database_user,$database_password);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try
+    {
+        $db = new PDO("mysql:host=$database_hostname;dbname=$database_name",$database_user,$database_password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-}catch(PDOException $z){
+    }
+    catch(PDOException $z)
+    {
 
-    die($z->getMessage());
-}
+        die($z->getMessage());
+    }
  if(isset($json['email']) &&isset($json['password']))
           {
 
@@ -51,17 +54,35 @@ try{
                 echo json_encode($resp);
 
         }
-$query = "SELECT * FROM comments";	
-$statement = $db->prepare($query);
-$statement->execute();
+if(isset($_SESSION['user']))
+{
+        $query = "SELECT * FROM purchasehistory";	
+        $statement = $db->prepare($query);
+        $statement->execute();
 
-$userData_List = array();
+        $userData_List = array();
 
-while($row=$statement->fetch(PDO::FETCH_ASSOC)){
-    
-    $userData_List['Data'][] = $row;	
+        while($row=$statement->fetch(PDO::FETCH_ASSOC))
+        {
+
+            $userData_List['User Purchase History'][] = $row;	
 
 
+        }
+        echo json_encode($userData_List);
 }
-echo json_encode($userData_List);
+        $query = "SELECT * FROM comments";	
+        $statement = $db->prepare($query);
+        $statement->execute();
+
+        $userData_List = array();
+
+        while($row=$statement->fetch(PDO::FETCH_ASSOC))
+        {
+
+            $userData_List['Data'][] = $row;	
+
+
+        }
+        echo json_encode($userData_List);
 ?>
