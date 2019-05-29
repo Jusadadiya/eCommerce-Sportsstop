@@ -70,6 +70,21 @@ if(isset($_SESSION['user']))
 
         }
         echo json_encode($userData_List);
+    
+    
+    if(isset($json['productId']) &&isset($json['rating']) && isset($json['description']))
+    {
+        $query = 'INSERT INTO comments ( product_Id,uid,productRating,product_comment)' .
+                        'VALUES (:pid,:uid,:prating,:pcmt)';	
+
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':pid',$json['productId']);
+            $stmt->bindValue(':uid',$_SESSION['user']);
+            $stmt->bindValue(':prating', $json['rating']);
+            $stmt->bindValue(':pcmt', $json['description']);
+            $stmt->execute();
+        header("location:comment.php");
+    }
 }
         $query = "SELECT * FROM comments";	
         $statement = $db->prepare($query);
