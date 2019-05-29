@@ -85,7 +85,7 @@ else if(isset($_SESSION['user']) && isset($json['productId']) && isset($json['pr
         $userid= $_SESSION['user'];
         
         $user = $sql->fetch(PDO::FETCH_ASSOC);
-        if (isset($json['productId']) && isset($json['productId'])<7 && isset($json['productQty']))
+        if (isset($json['productId']) && isset($json['productQty']))
         {
             //user adds products to cart with quantities needed
             $cmd = 'INSERT INTO cart (product_Id,product_Qty,uid)' .

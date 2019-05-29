@@ -137,8 +137,7 @@ if($success=="true")
             $stmt->execute();
 
              }
-            #$result="Success";
-                echo $result;
+            
              $query = 'DELETE from cart where uid=:uid';	
 
             $stmt1 = $db->prepare($query);
@@ -169,7 +168,7 @@ if($success=="true")
             $stmt1->bindValue(':uid', $_SESSION['user']);
             $stmt1->bindValue(':pid', $json['productId']);
             $stmt1->execute();
-               $result="Success";
+               $result="Item removed";
                 echo $result;
         }
     }

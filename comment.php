@@ -93,9 +93,12 @@ if(isset($_SESSION['user']))
             $stmt->bindValue(':prating', $json['rating']);
             $stmt->bindValue(':pcmt', $json['description']);
             $stmt->execute();
-        header("location:comment.php");
+            $message="comment successful";
+           
+        #header("location:comment.php");
     }
 }
+        echo $message;
         //displays all ratings and comments
         $query = "SELECT * FROM comments";	
         $statement = $db->prepare($query);
